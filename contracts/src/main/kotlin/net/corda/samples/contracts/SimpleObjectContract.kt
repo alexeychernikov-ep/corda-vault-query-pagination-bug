@@ -6,7 +6,7 @@ import net.corda.core.transactions.LedgerTransaction
 import net.corda.core.contracts.requireSingleCommand
 import net.corda.core.contracts.requireThat
 
-class VehicleContract : Contract {
+class SimpleObjectContract : Contract {
     // A transaction is valid if the verify() function of the contract of all the transaction's input and output states
     // does not throw an exception.
     override fun verify(tx: LedgerTransaction) {
@@ -15,7 +15,7 @@ class VehicleContract : Contract {
         val inputs = tx.inputs
         val outputs = tx.outputs
         when(command.value){
-            is Commands.AddVehicle -> requireThat {
+            is Commands.AddSimpleObject -> requireThat {
                 "Transaction must have no input state and only one output state." using (inputs.isEmpty() && outputs
                     .isNotEmpty())
             }
@@ -24,6 +24,6 @@ class VehicleContract : Contract {
 
     // Used to indicate the transaction's intent.
     interface Commands : CommandData {
-        class AddVehicle : Commands
+        class AddSimpleObject : Commands
     }
 }
