@@ -11,5 +11,5 @@ See https://docs.corda.net/getting-set-up.html.
 
 Open a terminal and go to the project root directory and type: (to build and run the test)
 ```
-./gradlew clean test
+./gradlew clean test --continue
 ```
