@@ -109,7 +109,7 @@ class VaultQueryTests {
         assertEquals(2, results.size)
     }
 
-    @Test(expected = VaultQueryException::class)
+    @Test
     fun `filter query with OR operator that returns only one tuple throws exception without pagination defined`() {
         getSimpleObjectMatchingCondition(
             0,
